@@ -85,3 +85,57 @@ Object.defineProperty(Animal, "constructor", {
   value: Animal
 })
 // 这次改造就完全是原生的原型了
+
+console.log("++++++++++++++++++我是一条华丽的分割线++++++++++++++++++++")
+// 动态原型模式 这边的原型不能用字面量定义否则会断开与之前原型的联系
+function Cup(type, color) {
+  this.cupType = type
+  this.color = color
+  if (typeof this.showCup != "function") {
+    Cup.prototype.showCup = function() {
+      // 注意这边prototype不能用this必须要用构造函数Cup
+      console.log(`This is a ${this.cupType} ${this.color} cup!`)
+    }
+  }
+}
+
+let glassCup = new Cup("glass", "red")
+let chinaCup = new Cup("china", "green")
+glassCup.showCup()
+chinaCup.showCup()
+console.log(glassCup.showCup === chinaCup.showCup)
+
+//寄生构造函数模式 我们一般改变不了Array的构造函数，但是我们要实现一个带有特殊功能函数的特殊数组
+function SpecialArray() {
+  this.name = "zhangsan"
+  let arr = new Array()
+  arr.push.apply(arr, arguments) // 这个applay是为了用数组传参的手段，不然的话push只能一次传一个参数
+  arr.specialJoin = function() {
+    return arr.join("|")
+  }
+  return arr
+}
+let tempArray = new SpecialArray(1, 2, 3, 4, 5, 6)
+console.log(tempArray.specialJoin())
+console.log(tempArray.name)
+// undefined 在new的时候构造函数默认返回实例对象，如果显示的return某个对象则重写了构造函
+//数的默认返回对象，实例化后this就是arr，其中不包括name，而name是在本身实例当中，本身的实例被return替换了则无法访问了。
+// console.log(name) 报错 全局是没有name属性的
+let testArray = SpecialArray(2, 3, 4, 5) //这边没有用new关键字，其中的this指向全局环境
+console.log(testArray.specialJoin())
+console.log(testArray.name) //undefined
+console.log(name) // zhangsan
+
+//稳妥构造函数模式 所谓稳妥说明没有公共属性，比较安全的一种方式，和上面比较相似不用new 不用this这样外界只能通过公布的方法访问内部的数据和属性
+function DurableObject(name) {
+  let obj = new Object()
+  let newName = name + 1
+  obj.sayHi = function() {
+    console.log(`My name is ${newName}!`)
+  }
+  return obj
+}
+let wanghua = DurableObject("wanghua")
+wanghua.sayHi() // 这边只能通过sayHi的方法访问到newName这个变量，其中obj对象叫做稳妥对象；
+
+
