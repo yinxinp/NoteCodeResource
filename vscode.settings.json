@@ -1,0 +1,106 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.tabSize": 2,
+  "prettier.semi": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontSize": 16,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "terminal.integrated.fontFamily": "'Meslo LG M for Powerline'",
+  "terminal.integrated.fontSize": 14,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vetur.validation.template": false,
+  "todo-tree.flat": true,
+  "todo-tree.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "foreground": "yellow",
+    "background": "white",
+    "opacity": 50,
+    "iconColour": "yellow"
+  },
+  "todo-tree.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "type": "line"
+    },
+    "FIXME": {
+      "foreground": "red",
+      "iconColour": "red"
+    }
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDelete": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "workbench.colorCustomizations": {
+    "activityBar.foreground": "#f152e4"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "var",
+        "scope": "variable",
+        "settings": {
+          "foreground": "#53df92",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "name": "function",
+        "scope": "entity.name.function",
+        "settings": {
+          "foreground": "#fc902c",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "name": "keyword",
+        "scope": "keyword.control,keyword.other",
+        "settings": {
+          "foreground": "#cc4040",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "name": "string",
+        "scope": "string",
+        "settings": {
+          "foreground": "#f1f5ed"
+        }
+      },
+      {
+        "name": "comment",
+        "scope": "punctuation.definition.comment,comment",
+        "settings": {
+          "foreground": "#758676"
+        }
+      },
+      {
+        "name": "class",
+        "scope": "support.class,class",
+        "settings": {
+          "foreground": "#ec4ff1"
+        }
+      }
+    ]
+  }
+}
