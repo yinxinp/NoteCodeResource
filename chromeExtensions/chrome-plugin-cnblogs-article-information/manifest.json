@@ -8,7 +8,7 @@
 			"19": "cnblogs_19.png",
 			"38": "cnblogs_38.png"
 		},
-		"default_title": "cnblogs.com article information", // shown in tooltip
+		"default_title": "cnblogs.com article information", 
 		"default_popup": "popup.html"
 	},
 	"permissions" : ["tabs","http://localhost/"],
